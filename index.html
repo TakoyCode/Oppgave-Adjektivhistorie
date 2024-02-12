@@ -58,27 +58,60 @@
                 - and great things happend. The End. </div>
 
             <div class="group">
-                <div class="box" onclick="changeText1('Green')">Green</div>
-                <div class="box" onclick="changeText1('Red')">Red</div>
+                <div class="box" onclick="changeText('1','Green')">Green</div>
+                <div class="box" onclick="changeText('1','Red')">Red</div>
             </div>
 
             <div class="group">
-                <div class="box" onclick="changeText2('Cat')">Cat</div>
-                <div class="box" onclick="changeText2('Man')">Man</div>
+                <div class="box" onclick="changeText('2','Cat')">Cat</div>
+                <div class="box" onclick="changeText('2','Man')">Man</div>
             </div>
 
             <div class="group">
-                <div class="box" onclick="changeText3('Stared')">Stared</div>
-                <div class="box" onclick="changeText3('Jumped')">Jumped</div>
+                <div class="box" onclick="changeText('3','Stared')">Stared</div>
+                <div class="box" onclick="changeText('3','Jumped')">Jumped</div>
             </div>
 
             <div class="group">
-                <div class="box" onclick="changeText4('Pool')">Pool</div>
-                <div class="box" onclick="changeText4('Wall')">Wall</div>
+                <div class="box" onclick="changeText('4','Pool')">Pool</div>
+                <div class="box" onclick="changeText('4','Wall')">Wall</div>
             </div>
 
             <button class="box" onclick="resetAll()">Reset all</button>
             `;
+        }
+
+        function changeText(num, text) {
+            switch (num) {
+                case '1':
+                    text1 = text;
+                    break;
+                case '2':
+                    text2 = text;
+                    break;
+                case '3':
+                    text3 = text;
+                    break;
+                case '4':
+                    text4 = text;
+                    break;
+                default:
+                    text1 = "___";
+                    text2 = "___";
+                    text3 = "___";
+                    text4 = "___";
+                    break;
+            }
+
+            /* num == '1' ? text1 = text : text1 = "___";
+
+            if (num == '1') {
+                text1 = text;
+            } else {
+                text1 = "___";
+            } */
+
+            changeView();
         }
 
         function changeText1(text) {
@@ -104,11 +137,6 @@
         function resetAll() {
             location.reload();
         }
-
-        /* function changeText(variable, text) {
-            variable = text;
-            changeView();
-        } */
 
     </script>
 </body>
