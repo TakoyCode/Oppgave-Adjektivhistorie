@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave Adjektivhistorie</title>
+    <style>
+        body {
+            background-color: rgb(69, 69, 69);
+        }
+
+        .group {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+        }
+
+        .box {
+            background-color: aqua;
+            width: 70px;
+            height: 50px;
+            border-radius: 40%;
+            margin: 5px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .tekstBox {
+            border: 3px solid black;
+            font-size: 140%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app"></div>
+
+    <script>
+        //Moddel
+        let text1 = "___";
+        let text2 = "___";
+        let text3 = "___";
+        let text4 = "___";
+
+
+        changeView();
+        //View
+        function changeView() {
+            document.getElementById('app').innerHTML = /*HTML*/ `
+            <div class="tekstBox">Once, there was a ${text1} ${text2} that ${text3} in the ${text4} 
+                - and great things happend. The End. </div>
+
+            <div class="group">
+                <div class="box" onclick="changeText1('Green')">Green</div>
+                <div class="box" onclick="changeText1('Red')">Red</div>
+            </div>
+
+            <div class="group">
+                <div class="box" onclick="changeText2('Cat')">Cat</div>
+                <div class="box" onclick="changeText2('Man')">Man</div>
+            </div>
+
+            <div class="group">
+                <div class="box" onclick="changeText3('Stared')">Stared</div>
+                <div class="box" onclick="changeText3('Jumped')">Jumped</div>
+            </div>
+
+            <div class="group">
+                <div class="box" onclick="changeText4('Pool')">Pool</div>
+                <div class="box" onclick="changeText4('Wall')">Wall</div>
+            </div>
+
+            <button class="box" onclick="resetAll()">Reset all</button>
+            `;
+        }
+
+        function changeText1(text) {
+            text1 = text;
+            changeView();
+        }
+
+        function changeText2(text) {
+            text2 = text;
+            changeView();
+        }
+
+        function changeText3(text) {
+            text3 = text;
+            changeView();
+        }
+
+        function changeText4(text) {
+            text4 = text;
+            changeView();
+        }
+
+        function resetAll() {
+            location.reload();
+        }
+
+        /* function changeText(variable, text) {
+            variable = text;
+            changeView();
+        } */
+
+    </script>
+</body>
+
+</html>
