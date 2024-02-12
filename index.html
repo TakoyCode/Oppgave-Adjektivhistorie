@@ -46,16 +46,17 @@
 
     <script>
         //Moddel
+        const app = document.getElementById('app');
         let text1 = "___";
         let text2 = "___";
         let text3 = "___";
         let text4 = "___";
 
 
-        changeView();
+        updateView();
         //View
-        function changeView() {
-            document.getElementById('app').innerHTML = /*HTML*/ `
+        function updateView() {
+            app.innerHTML = /*HTML*/ `
             <div class="tekstBox">Once, there was a ${text1} ${text2} that ${text3} in the ${text4} 
                 - and great things happend. The End. </div>
 
@@ -93,7 +94,7 @@
                     : num == '3' ? text3 = text
                         : num == '4' ? text4 = text
                             : blankAll();
-            changeView();
+            updateView();
         }
 
         function changeTextIfElse(num, text) {
@@ -113,7 +114,7 @@
                 blankAll();
                 return;
             }
-            changeView();
+            updateView();
         }
 
         function changeTextSwitch(num, text) {
@@ -135,27 +136,27 @@
                     return;
                     break;
             }
-            changeView();
+            updateView();
         }
 
         function changeTextBasic1(text) {
             text1 = text;
-            changeView();
+            updateView();
         }
 
         function changeTextBasic2(text) {
             text2 = text;
-            changeView();
+            updateView();
         }
 
         function changeTextBasic3(text) {
             text3 = text;
-            changeView();
+            updateView();
         }
 
         function changeTextBasic4(text) {
             text4 = text;
-            changeView();
+            updateView();
         }
 
         function resetAll() {
@@ -167,7 +168,7 @@
             text2 = "___";
             text3 = "___";
             text4 = "___";
-            changeView();
+            updateView();
         }
 
     </script>
