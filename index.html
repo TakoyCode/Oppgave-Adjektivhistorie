@@ -33,7 +33,9 @@
 
         .tekstBox {
             border: 3px solid black;
-            font-size: 140%;
+            background-color: lightgray;
+            font-size: 150%;
+            padding: 10px;
         }
     </style>
 </head>
@@ -58,30 +60,63 @@
                 - and great things happend. The End. </div>
 
             <div class="group">
-                <div class="box" onclick="changeText('1','Green')">Green</div>
-                <div class="box" onclick="changeText('1','Red')">Red</div>
+                <div class="box" onclick="changeTextSwitch('1','Green')">Green</div>
+                <div class="box" onclick="changeTextSwitch('1','Red')">Red</div>
             </div>
 
             <div class="group">
-                <div class="box" onclick="changeText('2','Cat')">Cat</div>
-                <div class="box" onclick="changeText('2','Man')">Man</div>
+                <div class="box" onclick="changeTextSwitch('2','Cat')">Cat</div>
+                <div class="box" onclick="changeTextSwitch('2','Man')">Man</div>
             </div>
 
             <div class="group">
-                <div class="box" onclick="changeText('3','Stared')">Stared</div>
-                <div class="box" onclick="changeText('3','Jumped')">Jumped</div>
+                <div class="box" onclick="changeTextSwitch('3','Stared')">Stared</div>
+                <div class="box" onclick="changeTextSwitch('3','Jumped')">Jumped</div>
             </div>
 
             <div class="group">
-                <div class="box" onclick="changeText('4','Pool')">Pool</div>
-                <div class="box" onclick="changeText('4','Wall')">Wall</div>
+                <div class="box" onclick="changeTextSwitch('4','Pool')">Pool</div>
+                <div class="box" onclick="changeTextSwitch('4','Wall')">Wall</div>
             </div>
 
+            <div class="group">
             <button class="box" onclick="resetAll()">Reset all</button>
+            <button class="box" onclick="blankAll()">Blank all</button>
+            <button class="box" onclick="changeTextSwitch('5','Blank')">Weird Blank</button>
+            </div>
             `;
         }
 
-        function changeText(num, text) {
+        function changeTextTernary(num, text) {
+            num == '1' ? text1 = text
+                : num == '2' ? text2 = text
+                    : num == '3' ? text3 = text
+                        : num == '4' ? text4 = text
+                            : blankAll();
+            changeView();
+        }
+
+        function changeTextIfElse(num, text) {
+            if (num == '1') {
+                text1 = text;
+            }
+            else if (num == '2') {
+                text2 = text;
+            }
+            else if (num == '3') {
+                text3 = text;
+            }
+            else if (num == '4') {
+                text4 = text;
+            }
+            else {
+                blankAll();
+                return;
+            }
+            changeView();
+        }
+
+        function changeTextSwitch(num, text) {
             switch (num) {
                 case '1':
                     text1 = text;
@@ -96,46 +131,43 @@
                     text4 = text;
                     break;
                 default:
-                    text1 = "___";
-                    text2 = "___";
-                    text3 = "___";
-                    text4 = "___";
+                    blankAll();
+                    return;
                     break;
             }
-
-            /* num == '1' ? text1 = text : text1 = "___";
-
-            if (num == '1') {
-                text1 = text;
-            } else {
-                text1 = "___";
-            } */
-
             changeView();
         }
 
-        function changeText1(text) {
+        function changeTextBasic1(text) {
             text1 = text;
             changeView();
         }
 
-        function changeText2(text) {
+        function changeTextBasic2(text) {
             text2 = text;
             changeView();
         }
 
-        function changeText3(text) {
+        function changeTextBasic3(text) {
             text3 = text;
             changeView();
         }
 
-        function changeText4(text) {
+        function changeTextBasic4(text) {
             text4 = text;
             changeView();
         }
 
         function resetAll() {
             location.reload();
+        }
+
+        function blankAll() {
+            text1 = "___";
+            text2 = "___";
+            text3 = "___";
+            text4 = "___";
+            changeView();
         }
 
     </script>
